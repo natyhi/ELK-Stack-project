@@ -21,8 +21,8 @@ This document contains the following details:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly _____, in addition to restricting _____ to the network.
-- _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box?_
+Load balancing ensures that the application will be highly secured, in addition to restricting unauthorized network traffic to the network.
+- Load Balancing plays an important security role as computing moves evermore to the cloud. The off-loading function of a load balancer defends an organization against distributed denial-of-service (DDoS) attacks. It does this by shifting attack traffic from the corporate server to a public cloud provider. What is the advantage of a jump box?_
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _____ and system _____.
 - _TODO: File beat watches for forwarding and centralizing log data.
@@ -50,11 +50,12 @@ Machines within the network can only be accessed by _____.
 
 A summary of the access policies in place can be found in the table below.
 
-| Name     | Publicly Accessible | Allowed IP Addresses |
-|----------|---------------------|----------------------|
-| Jump Box | Yes/No              | 10.0.0.1 10.0.0.2    |
-|          |                     |                      |
-|          |                     |                      |
+| Name     | Public Accessible  | Allowed IP Address |
+|----------|--------------------|--------------------|
+| Jump-Box | Yes                | 20.120.16.53       |
+| Web-1    | No                 | 10.0.0.5/10.0.0.7  |
+| Web-2    | No                 | 10.0.0.6/10.0.0.7  |
+| ElK      | Yes                | 40.122.238.253     |
 
 ### Elk Configuration
 
@@ -68,7 +69,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+![image](https://user-images.githubusercontent.com/70927264/148159282-de00985d-1f47-4a07-bb4b-1d7f41f94590.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
