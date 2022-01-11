@@ -4,12 +4,12 @@ The files in this repository were used to configure the network depicted below.
 
 ![ELK Stack Diagram](https://github.com/natyhi/ELK-Stack-project/blob/main/ELK%20Diagram/Cloud%20Security.drawio.png)
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _____ file may be used to install only certain pieces of it, such as Filebeat.
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the ANSIBLE file may be used to install only certain pieces of it, such as Filebeat.
 
   [Ansible](https://github.com/natyhi/ELK-Stack-project/tree/main/Ansible)
 
 This document contains the following details:
-- Description of the Topologu
+- Description of the Topology
 - Access Policies
 - ELK Configuration
   - Beats in Use
@@ -29,7 +29,6 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 - Metricbeat takes the metrics and stats that it collects and ships them to the output.
 
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
 | Name     | Function                                              | IP Address   | Operation System |
 |----------|-------------------------------------------------------|--------------|------------------|
@@ -63,7 +62,6 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 - It will help with the representation of Infrastructure (IAC) also, you don't need speacialized coding skills to set it up. 
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
 - install docker and ansible within a jumpbox run the playbook to enable the filebeat/metric software to other servers.
 - Added Elk Vm to jumpbox seperate container and under the ELK group name
 - ran the ansible-playbook command to start all
@@ -93,12 +91,15 @@ SSH into the control node and follow the steps below:
 - Update the Ansibleconfig file to include WEB servers ip and ELK IP addressess
 - Run the playbook, and navigate to Kibana to check that the installation worked as expected.
 
-_TODO: Answer the following questions to fill in the blanks:_
-- _The playbook file is that playbook.yml Where do you copy it, i copied it from the playbook.yml file.
-- _Which file do you update to make Ansible run the playbook on a specific machine? I update the  How do I specify which machine to install the ELK server on versus which to install Filebeat on? I updated the ansible configuration file to denote the Web servers and ELK vm
+Which file is the playbook? Where do you copy it?
+- _The playbook file should be located in the ansible directory under playbook.yml. Where do you copy it, i copied it from the playbook.yml file.
+- _Which file do you update to make Ansible run the playbook on a specific machine? I update the/etc/ansible/hosts.
+-  How do I specify which machine to install the ELK server on versus which to install Filebeat on? I updated the ansible configuration file to denote the Web servers and ELK vm
 - _Which URL do you navigate to in order to check that the ELK server is running? this is the url http://40.122.238.253:5601/
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
-As a user the first command install playbook.yml
-run ansible-playbook playbook.yml
-update playbook.yml
+1.Make sure your AZURE VMs are up and running.
+2.As a user the first command install playbook.yml
+3.On the terminal SSH into jumpbox.
+4.then run the docker sudo commands ( sudo -i, sudo docker ps -a, sudo start docker 'name of docker', sudo attach docker 'name of docker')
+5. Once in the root of your container run your either beat from the container you are in. by using command ansible-playbook. You can use anisble-playbook to run your playbook and also your beats. 
